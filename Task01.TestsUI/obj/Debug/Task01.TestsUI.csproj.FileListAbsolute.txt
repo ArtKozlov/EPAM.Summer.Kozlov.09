@@ -1,0 +1,8 @@
+D:\Epam\EPAM.Summer.Kozlov.09\Task01.TestsUI\bin\Debug\Task01.TestsUI.exe.config
+D:\Epam\EPAM.Summer.Kozlov.09\Task01.TestsUI\bin\Debug\Task01.TestsUI.exe
+D:\Epam\EPAM.Summer.Kozlov.09\Task01.TestsUI\bin\Debug\Task01.TestsUI.pdb
+D:\Epam\EPAM.Summer.Kozlov.09\Task01.TestsUI\bin\Debug\Task01.dll
+D:\Epam\EPAM.Summer.Kozlov.09\Task01.TestsUI\bin\Debug\Task01.pdb
+D:\Epam\EPAM.Summer.Kozlov.09\Task01.TestsUI\obj\Debug\Task01.TestsUI.csprojResolveAssemblyReference.cache
+D:\Epam\EPAM.Summer.Kozlov.09\Task01.TestsUI\obj\Debug\Task01.TestsUI.exe
+D:\Epam\EPAM.Summer.Kozlov.09\Task01.TestsUI\obj\Debug\Task01.TestsUI.pdb
