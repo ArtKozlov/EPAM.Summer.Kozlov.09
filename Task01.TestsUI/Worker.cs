@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task01
+namespace Task01.TestsUI
 {
-    public class Manager
+    public class Worker
     {
         /// <summary>
         /// Method alert time work is end. 
         /// </summary>
         private void SayGoodBey(Object sender, ClockEventArgs clock) =>
-            Console.WriteLine($"Manager:\nMy Work is end!  I worked {clock.Time} minutes.  I gonna home.");
+            Console.WriteLine($"Worker:\nMy Work is end!  I worked {clock.Time} minutes.  I gonna home.");
         /// <summary>
         /// The method that subscribes to the event notification about the end of work
         /// </summary>
