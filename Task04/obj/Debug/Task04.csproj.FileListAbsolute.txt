@@ -1,0 +1,8 @@
+D:\Epam\EPAM.Summer.Kozlov.09\Task04\bin\Debug\NLog.config
+D:\Epam\EPAM.Summer.Kozlov.09\Task04\bin\Debug\Task04.dll
+D:\Epam\EPAM.Summer.Kozlov.09\Task04\bin\Debug\Task04.pdb
+D:\Epam\EPAM.Summer.Kozlov.09\Task04\bin\Debug\NLog.dll
+D:\Epam\EPAM.Summer.Kozlov.09\Task04\bin\Debug\NLog.xml
+D:\Epam\EPAM.Summer.Kozlov.09\Task04\obj\Debug\Task04.csprojResolveAssemblyReference.cache
+D:\Epam\EPAM.Summer.Kozlov.09\Task04\obj\Debug\Task04.dll
+D:\Epam\EPAM.Summer.Kozlov.09\Task04\obj\Debug\Task04.pdb

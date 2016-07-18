@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Task04
 {
-    public sealed class Book: IEquatable<Book>, IComparable<Book>
+    public sealed class Book: IEquatable<Book>, IComparable<Book>, IComparer<Book>
     {
         private string _author;
         private string _title;
@@ -14,8 +15,8 @@ namespace Task04
             get { return _author; }
             private set
             {
-                if (ReferenceEquals(_author, null))
-                    throw new ArgumentNullException();
+            //    if (ReferenceEquals(_author, null))
+            //        throw new ArgumentNullException();
                 _author = value;
             }
         }
@@ -25,8 +26,8 @@ namespace Task04
             get { return _title; }
             private set
             {
-                if (ReferenceEquals(_title, null))
-                    throw new ArgumentNullException();
+             //   if (ReferenceEquals(_title, null))
+             //       throw new ArgumentNullException();
                 _title = value;
             }
         }
@@ -36,8 +37,8 @@ namespace Task04
             get { return _pages; }
             private set
             {
-                if (_pages < 0)
-                    throw new ArgumentException();
+             //   if (_pages < 0)
+             //       throw new ArgumentException();
                 _pages = value;
             }
         }
@@ -47,8 +48,8 @@ namespace Task04
             get { return _yearOfPublish; }
             private set
             {
-                if (_yearOfPublish < 0 || _yearOfPublish > DateTime.Today.Year)
-                    throw new ArgumentException();
+               // if (_yearOfPublish < 0 || _yearOfPublish > DateTime.Today.Year)
+               //     throw new ArgumentException();
                 _yearOfPublish = value;
             }
 
@@ -93,7 +94,8 @@ namespace Task04
         }
         public int CompareTo(Book other)
         {
-            if (ReferenceEquals(null, other)) return 1;
+            if (ReferenceEquals(null, other))
+                throw new ArgumentNullException();
             if (other.Pages < Pages) return 1;
             if (other.Pages > Pages) return -1;
             return 0;
@@ -117,6 +119,14 @@ namespace Task04
         /// </summary>
         /// <returns>returns a hashcode.</returns>
         public override int GetHashCode() => (Pages*YearOfPublish*Title.GetHashCode()*Author.GetHashCode()).GetHashCode();
+
+        public int Compare(Book x, Book y)
+        {
+            if (ReferenceEquals(null, x) || ReferenceEquals(null, y))
+                throw new ArgumentNullException();
+            return x.CompareTo(y);
+        }
+
         /// <summary>
         /// Override ToString method of object method.
         /// </summary>

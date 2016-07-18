@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using NLog;
 
 namespace Task04
 {
-    public class BookListService
+    public class BookListService: IEnumerable<Book>
     {
         #region declaration of variables, constructors
         private readonly List<Book> listOfBooks;
@@ -113,7 +114,7 @@ namespace Task04
         /// It sorts the list of books relative to the input parameter.
         /// </summary>
         /// <param name="comparison">One of the properties of the book.</param>
-        public void SortBooksByTag(Comparison<Book> comparison)
+        public void SortBooksByTag(IComparer<Book> comparison)
         {
             if (ReferenceEquals(null, comparison))
             {
@@ -123,5 +124,17 @@ namespace Task04
         }
 #endregion
 
+        public IEnumerator<Book> GetEnumerator()
+        {
+            for (int i = 0; i < listOfBooks.Count; i++)
+            {
+                yield return listOfBooks[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }
