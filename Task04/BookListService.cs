@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NLog;
 
 namespace Task04
@@ -18,7 +15,7 @@ namespace Task04
         /// The constructor creates a list of books on the basis of existing.
         /// </summary>
         /// <param name="_listOfBooks">Existing list of books.</param>
-        public BookListService(List<Book> _listOfBooks)
+        public BookListService(IEnumerable<Book> _listOfBooks)
         {
             listOfBooks = new List<Book>(_listOfBooks);
         }

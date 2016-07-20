@@ -15,8 +15,8 @@ namespace Task04
             get { return _author; }
             private set
             {
-            //    if (ReferenceEquals(_author, null))
-            //        throw new ArgumentNullException();
+                if (ReferenceEquals(value, null))
+                   throw new ArgumentNullException();
                 _author = value;
             }
         }
@@ -26,8 +26,8 @@ namespace Task04
             get { return _title; }
             private set
             {
-             //   if (ReferenceEquals(_title, null))
-             //       throw new ArgumentNullException();
+                if (ReferenceEquals(value, null))
+                    throw new ArgumentNullException();
                 _title = value;
             }
         }
@@ -37,8 +37,8 @@ namespace Task04
             get { return _pages; }
             private set
             {
-             //   if (_pages < 0)
-             //       throw new ArgumentException();
+                if (value < 0)
+                    throw new ArgumentException();
                 _pages = value;
             }
         }
@@ -48,8 +48,8 @@ namespace Task04
             get { return _yearOfPublish; }
             private set
             {
-               // if (_yearOfPublish < 0 || _yearOfPublish > DateTime.Today.Year)
-               //     throw new ArgumentException();
+                if (value < 0 || value > DateTime.Today.Year)
+                    throw new ArgumentException();
                 _yearOfPublish = value;
             }
 
