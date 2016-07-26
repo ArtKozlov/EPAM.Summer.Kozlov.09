@@ -19,21 +19,23 @@ namespace Task04.UI
             listOfBooks.AddBook(new Book("Stas", "Ivanov", 700, 2015));
             listOfBooks.RemoveBook(new Book("Stas", "Ivanov", 900, 2015));
             listOfBooks.AddBook(new Book("Dima", "Ivanov", 201, 2015));
-            BinaryBookListStorage storage = new BinaryBookListStorage("D:\\text.txt");
+
+            // BinaryBookListStorage storage = new BinaryBookListStorage("D:\\text.txt");
+            XmlBookListStorage storage = new XmlBookListStorage("D:\\text1.xml");
             storage.SaveBooks(listOfBooks);
             List<Book> newListOfBooks = storage.LoadBooks();
             foreach (Book book in newListOfBooks)
             {
                 Console.WriteLine(book.ToString());
             }
-            Console.WriteLine("Find a book by tag is Nikolay");
-            Console.WriteLine(listOfBooks.FindBookByTag("Nikolay").ToString());
-            IComparer <Book> comparer = book1;
-            listOfBooks.SortBooksByTag(comparer);
-            foreach (Book book in listOfBooks)
-            {
-                Console.WriteLine(book.ToString());
-            }
+            //Console.WriteLine("Find a book by tag is Nikolay");
+            //Console.WriteLine(listOfBooks.FindBookByTag("Nikolay").ToString());
+            //IComparer<Book> comparer = book1;
+            //listOfBooks.SortBooksByTag(comparer);
+            //foreach (Book book in listOfBooks)
+            //{
+            //    Console.WriteLine(book.ToString());
+            //}
             Console.ReadKey();
         }
     }
