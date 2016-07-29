@@ -4,14 +4,13 @@ using System.Runtime.Serialization;
 
 namespace Task04
 {
-    [DataContract]
+    [Serializable]
     public sealed class Book: IEquatable<Book>, IComparable<Book>, IComparer<Book>
     {
         private string _author;
         private string _title;
         private int _pages;
         private int _yearOfPublish;
-        [DataMember]
         public string Author
         {
             get { return _author; }
@@ -22,7 +21,6 @@ namespace Task04
                 _author = value;
             }
         }
-        [DataMember]
         public string Title
         {
             get { return _title; }
@@ -33,7 +31,6 @@ namespace Task04
                 _title = value;
             }
         }
-        [DataMember]
         public int Pages
         {
             get { return _pages; }
@@ -44,7 +41,6 @@ namespace Task04
                 _pages = value;
             }
         }
-        [DataMember]
         public int YearOfPublish
         {
             get { return _yearOfPublish; }

@@ -53,12 +53,13 @@ namespace Task04
         public void SaveBooks(IEnumerable<Book> books)
         {
             FileStream fileStream = null;
+            xmlData = new XmlSerializer(typeof(List<Book>));
             try
             {
                 fileStream = new FileStream(file, FileMode.Create);
-                xmlData = new XmlSerializer(typeof(List<Book>));
                 xmlData.Serialize(fileStream, books);
             }
+
             catch (IOException e)
             {
                 logger.Fatal("File didn't create.");
