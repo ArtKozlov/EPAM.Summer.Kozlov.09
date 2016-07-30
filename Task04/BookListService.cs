@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using NLog;
 
 namespace Task04
 {
@@ -9,7 +8,6 @@ namespace Task04
     {
         #region declaration of variables, constructors
         private readonly List<Book> listOfBooks;
-        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
         /// The constructor creates a list of books on the basis of existing.
@@ -34,15 +32,19 @@ namespace Task04
         {
             if (ReferenceEquals(null, book))
             {
-                logger.Fatal("Method Add(): ArgumentNullException;\n");
+                CustomLogger.logger.Fatal("Method Add(): ArgumentNullException;\n");
+                throw new ArgumentNullException();
             }
 
             foreach (Book elem in listOfBooks)
             {
                 if (book.Equals(elem))
+                {
+                    CustomLogger.logger.Fatal("Method Add(): InvalidOperationException;\n");
                     throw new InvalidOperationException("This object already exists!");
+                }
             }
-
+            CustomLogger.logger.Info("Method Add(): element added;\n");
             listOfBooks.Add(book);
         }
 
@@ -54,10 +56,15 @@ namespace Task04
         {
             if (ReferenceEquals(null, book))
             {
-                logger.Fatal("Method Remove(): ArgumentNullException;\n");
+                CustomLogger.logger.Fatal("Method Remove(): ArgumentNullException;\n");
+                throw new ArgumentNullException();
             }
-            if(listOfBooks.Remove(book))
+            if (!listOfBooks.Remove(book))
+            {
+                CustomLogger.logger.Fatal("Method Add(): InvalidOperationException;\n");
                 throw new InvalidOperationException("This object already not exists!");
+            }
+            CustomLogger.logger.Info("Method Add(): element removed;\n");
         }
 
         /// <summary>
@@ -69,17 +76,19 @@ namespace Task04
         {
             if (ReferenceEquals(null, tag))
             {
-                logger.Fatal("Method FindBookByTag(): ArgumentNullException;\n");
+                CustomLogger.logger.Fatal("Method FindBookByTag(): ArgumentNullException;\n");
+                throw new ArgumentNullException();
             }
             foreach (Book book in listOfBooks)
             {
                 if (book.Author == tag || book.Title == tag)
                 {
+                    CustomLogger.logger.Info("Method FindBookByTag(): Book found.;\n");
                     return new Book(book.Author, book.Title, book.Pages, book.YearOfPublish);
                 }
 
             }
-            logger.Fatal("Method FindBookByTag(): Book not found.;\n");
+            CustomLogger.logger.Error("Method FindBookByTag(): Book not found.;\n");
             return null;
         }
 
@@ -93,17 +102,19 @@ namespace Task04
         {
             if (tag <= 0)
             {
-                logger.Fatal("Method FindBookByTag(): ArgumentException;\n");
+                CustomLogger.logger.Fatal("Method FindBookByTag(): ArgumentOutOfRangeException;\n");
+                throw new ArgumentOutOfRangeException();
             }
             foreach (Book book in listOfBooks)
             {
                 if (book.Pages == tag || book.YearOfPublish == tag)
                 {
+                    CustomLogger.logger.Fatal("Method FindBookByTag(): Book found.\n");
                     return new Book(book.Author, book.Title, book.Pages, book.YearOfPublish);
                 }
 
             }
-            logger.Fatal("Method FindBookByTag(): Book not found.\n");
+            CustomLogger.logger.Error("Method FindBookByTag(): Book not found.\n");
             return null;
         }
 
@@ -115,9 +126,11 @@ namespace Task04
         {
             if (ReferenceEquals(null, comparison))
             {
-                logger.Fatal("Method SortBooksByTag(): ArgumentNullException;\n");
+                CustomLogger.logger.Fatal("Method SortBooksByTag(): ArgumentNullException;\n");
+                throw new ArgumentNullException();
             }
             listOfBooks.Sort(comparison);
+            CustomLogger.logger.Info("Method SortBooksByTag(): List of books is sorted;\n");
         }
 #endregion
 

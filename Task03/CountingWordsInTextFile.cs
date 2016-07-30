@@ -9,7 +9,6 @@ namespace Task03
         static void Main(string[] args)
         {
             string text = String.Empty;
-            string[] result;
             string[] remover = {",","!",".","?","(",")",";",":","#","@"};
             Dictionary<string, int> wordsDictionary = new Dictionary<string, int>();
             StreamReader textReader = new StreamReader("D:\\Epam\\EPAM.Summer.Kozlov.09\\Task03\\textfile.txt");
@@ -26,7 +25,7 @@ namespace Task03
                 text = text.Replace(value, "");
             }
 
-            result = text.Split(' ');
+            string[] result = text.Split(' ');
 
             foreach (string word in result)
             {

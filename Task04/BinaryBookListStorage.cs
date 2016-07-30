@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NLog;
 
 namespace Task04
 {
@@ -13,7 +9,6 @@ namespace Task04
         private readonly string file;
         private BinaryWriter dataOut;
         private BinaryReader dataIn;
-        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public BinaryBookListStorage(string fileName)
         {
@@ -42,9 +37,9 @@ namespace Task04
                 }
                 return listOfBooks;
             }
-            catch (IOException e)
+            catch (IOException)
             {
-                logger.Fatal("File didn't load.");
+                CustomLogger.logger.Fatal("File didn't load.");
                 return null;
             }
             finally
@@ -70,9 +65,9 @@ namespace Task04
                     dataOut.Write(book.YearOfPublish);
                 }
             }
-            catch (IOException e)
+            catch (IOException)
             {
-                logger.Fatal("File didn't create.");
+                CustomLogger.logger.Fatal("File didn't create.");
             }
             finally
             {

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-using NLog;
 
 namespace Task04
 {
@@ -10,7 +9,6 @@ namespace Task04
     {
         private readonly string file;
         private XmlSerializer xmlData;
-        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public XmlBookListStorage(string fileName)
         {
@@ -38,7 +36,7 @@ namespace Task04
             }
             catch (IOException e)
             {
-                logger.Fatal("File didn't load.");
+                CustomLogger.logger.Fatal("File didn't load." + e.Message);
                 return null;
             }
             finally
@@ -62,12 +60,13 @@ namespace Task04
 
             catch (IOException e)
             {
-                logger.Fatal("File didn't create.");
+                CustomLogger.logger.Fatal("File didn't create." + e.Message);
             }
             finally
             {
                 if (!ReferenceEquals(null, fileStream)) fileStream.Dispose();
             }
+
         }
     }
 }
